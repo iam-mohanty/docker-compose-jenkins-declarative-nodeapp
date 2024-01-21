@@ -50,3 +50,7 @@ build now✌️✌️✌️✌️
 # 5. access app
 
 public-ip:8000
+
+docker kill container-id // docker rm container-id
+
+again build now & change your code , it automatically reflected or create new container
