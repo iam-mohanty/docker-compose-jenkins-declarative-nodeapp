@@ -49,4 +49,4 @@ build now✌️✌️✌️✌️
 
 # access app
 
-<public-ip>:8000
+public-ip:8000
