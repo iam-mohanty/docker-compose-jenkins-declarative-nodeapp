@@ -2,6 +2,6 @@ version : '3.9'
 
 services :
   web :
-    image : "urdevops/mynodeappimg:latest"
+    image : "amohanty13/mynodeappimg:latest"
     ports :
         - "8000:8000"
