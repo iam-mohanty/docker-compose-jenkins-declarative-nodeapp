@@ -5,13 +5,13 @@ pipeline {
         stage('code clone') {
             steps {
                 echo "code cloning hogya repo se"
-                git url: "https://github.com/iam-mohanty/docker-jenkins-declarative-nodeapp.git"
+                git url: "https://github.com/urdevops/jenkins-nodejs-project.git", branch: "master"
             }
         }
         stage('code build') {
             steps {
                 echo "code build v karliye"
-                sh "docker build . -t nodeappimg:latest"
+                sh "docker build . -t mynodeappimg:latest"
             }
         }
         stage('code test') {
@@ -19,10 +19,20 @@ pipeline {
                 echo "code testing hogya"
             }
         }
-        stage('code deploy') {
+        stage('push to docker hub') {
             steps {
-                echo "deploying v hogya h container k andar"
-                sh "docker run -itd -p 8000:8000 nodeappimg:latest"
+                echo "pushing the image to docker hub"
+                withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
+                sh "docker tag mynodeappimg ${env.dockerHubUser}/mynodeappimg:latest"
+                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                sh "docker push ${env.dockerHubUser}/mynodeappimg:latest"
+                }
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo "deploying the container"
+                sh "docker-compose down && docker-compose up -d"
             }
         }
     }
