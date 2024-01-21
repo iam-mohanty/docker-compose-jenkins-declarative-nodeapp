@@ -1,4 +1,4 @@
-# docker-compose-jenkins-declarative-nodeapp😎👇
+# docker-compose-jenkins-declarative-nodeapp🚀⛴️👇
 
 # 1. install jenkins on ubuntu
 
