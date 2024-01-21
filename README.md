@@ -46,3 +46,7 @@ mention github project section : your github repo url
 pipeline : type or use projects syntax
 
 build now✌️✌️✌️✌️
+
+# access app
+
+<public-ip>:8000
