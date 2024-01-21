@@ -1,4 +1,4 @@
-# docker-compose-jenkins-declarative-nodeapp⛴️🚀👇
+# docker-jenkins-declarative-nodeapp😎👇
 
 # 1. install jenkins on ubuntu
 
@@ -31,8 +31,6 @@ usermod -aG docker jenkins
 
 systemctl restart jenkins
 
-apt install docker-compose -y
-
 # 4. start nodeapp project
 
 goto jenkins dashboard
@@ -46,7 +44,3 @@ mention github project section : your github repo url
 pipeline : type or use projects syntax
 
 build now✌️✌️✌️✌️
-
-# 5. access app
-
-public-ip:8000
