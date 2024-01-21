@@ -31,6 +31,8 @@ usermod -aG docker jenkins
 
 systemctl restart jenkins
 
+apt install docker-compose -y
+
 # 4. start nodeapp project
 
 goto jenkins dashboard
