@@ -1,56 +1,63 @@
 # docker-compose-jenkins-declarative-nodeapp🚀⛴️👇
 
-# 1. install jenkins on ubuntu
+# jenkins-nodeapp👇😎
 
-apt update
+# 1. install ubuntu 
 
-apt install fontconfig openjdk-11-jre -y
+create aws ubuntu-22 server , login as : ubuntu 
 
-<go to jenkins.io => copy binary file & key file>
+sudo apt-get update 
 
-apt update
+sudo apt install docker.io -y 
 
-apt install jenkins -y
+sudo usermod -aG docker $USER
 
-systemctl enable --now jenkins
+sudo reboot , again login
 
+# 2. jenkins install
 
-# 2. for connect jenkins
+sudo apt install openjdk-17-jre -y
 
-copy server public-ip:8080
+java --version
 
-cat /var/lib/jenkins/secrets/initialadminpassword
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+  
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
 
-install suggested plug-ins
+  
+sudo apt-get update
 
-# 3. docker permission
+sudo apt-get install jenkins
 
-apt install docker.io -y
+login jenkins
 
-usermod -aG docker jenkins
+# 3. start project
 
-systemctl restart jenkins
+create pipeline project
 
-apt install docker-compose -y
+mention anything inside description
 
-# 4. start nodeapp project
+github projects : mention ur github repo ; https://github.com/iam-mohanty/docker-compose-jenkins-declarative-nodeapp.git
 
-goto jenkins dashboard
+add syntax in pipeline section (paste it from jenkinsfile) , build
 
-click create new item
+sudo usermod -aG docker jenkins
 
-select pipeline project
+sudo reboot
 
-mention github project section : your github repo url
+again build now
 
-pipeline : type or use projects syntax
+# 4. create docker-hub credential
 
-build now✌️✌️✌️✌️
+manage jenkins -> credentials -> goto system -> global credential -> add credential -> mention ur dockerhub username & pw , id : dockerHub
 
-# 5. access app
+# 5. install docker-compose
+
+sudo apt-get install docker-compose -y
+
+# 6. access app
 
 public-ip:8000
-
-docker kill container-id // docker rm container-id
-
-again build now & change your code , it automatically reflected or create new container
