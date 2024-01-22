@@ -1,7 +1,7 @@
-version : '3.9'
+version : "3.3"
 
 services :
   web :
-    image : "amohanty13/mynodeappimg:latest"
+    image : "amohanty13/my-node-app:latest"
     ports :
         - "8000:8000"
