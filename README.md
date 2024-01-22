@@ -52,6 +52,8 @@ manage jenkins -> credentials -> goto system -> global credential -> add credent
 
 sudo apt-get install docker-compose -y
 
+again final build now
+
 # 6. access app
 
 public-ip:8000
